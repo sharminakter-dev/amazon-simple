@@ -16,9 +16,11 @@ const addToDb = id => {
     }
   }
   updateDb(shopping_cart);
+  return shopping_cart[id];
 }
 
 const getDb = () => localStorage.getItem('shopping_cart');
+
 const updateDb = cart => {
   localStorage.setItem('shopping_cart', JSON.stringify(cart));
 }
@@ -26,7 +28,7 @@ const updateDb = cart => {
 const removeFromDb = id => {
   const exists = getDb();
   if (!exists) {
-
+    // Nothing happens here! If no cart exists, nothing to delete
   }
   else {
     const shopping_cart = JSON.parse(exists);
